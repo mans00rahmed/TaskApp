@@ -1,0 +1,25 @@
+<div class="container form-container">
+    <form #myForm="ngForm">
+        <div class="row">
+            <div class="col-sm-5 form-group" id="task">
+                <label for="name">Task</label>
+                <input type="text" id="name" name="task" class="form-control" required
+                        >
+            </div>
+            <div class="col-sm-2 form-group">
+                <label for="isDone">Is Done</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="checkboxNoLabel" name="isDone"
+                        >
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 btn-container">
+                <button class="btn btn-success"  >Add</button>
+                <button class="btn btn-danger">Delete</button>
+                <button class="btn btn-primary">Clear</button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,41 @@
+body {
+    background-color: #f8f9fa;
+    padding: 20px;
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 2%;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+}
+
+.form-check-input {
+    height: 36px;
+    width: 36px;
+    margin-top: 1%;
+}
+
+.btn-container {
+    text-align: right;
+    margin-top: 10px;
+    /* Small space between buttons and form */
+}
+
+.btn {
+    margin-left: 1%;
+}
+#task{
+    width: 83%;
+}

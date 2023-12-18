@@ -1,0 +1,18 @@
+<!-- todo list component -->
+<div class="row">
+    <div class="col-xs-12">
+        <div class="todo-list" *ngIf="link === 'todo'">
+            <h6 class="display-6">{{top}}</h6>
+            <ul class="list-group">
+                <li class="list-group-item" *ngFor="let todo of todos">
+                    <span>{{ todo.task }}</span>
+
+                    <!-- attribiute diretive -->
+                </li>
+            </ul>
+        </div>
+        <div class="todo-edit" *ngIf="link !== 'todo'">
+            <app-todo-edit></app-todo-edit>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+/* Assuming your styles are in the same component CSS file */
+.todo-list {
+    margin-top: 20px;
+}
+
+.todo-list h2 {
+    color: #333;
+}
+
+.list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.list-group-item:hover {
+    background-color: #e1e1e2; /* Light gray background on hover */
+}
+
+.status {
+    font-weight: bold;
+    color: #555;
+}
+
+.done {
+    color: #28a745; /* Green color for completed tasks */
+}
+
+.todo-edit {
+    margin-top: 20px;
+}
