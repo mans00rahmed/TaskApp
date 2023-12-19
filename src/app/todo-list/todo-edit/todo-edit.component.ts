@@ -16,4 +16,14 @@ export class TodoEditComponent {
   addTask() {
     this.addTodo.emit({ task: this.task, isDone: this.isDone })
   }
+
+  deleteTask(){
+    this.deleteTodo.emit();
+  }
+
+  clearTask(){
+    this.task='';
+    this.isDone=false;
+  }
+  
 }
