@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Todo } from '../model/Todo';
 
 @Component({
@@ -7,9 +7,16 @@ import { Todo } from '../model/Todo';
   styleUrl: './todo-list.component.css'
 })
 export class TodoListComponent {
-  link: string = 'todo';
+  @Input() link: string = 'todo';
+
+  // declare proerties for delete task and delete isDone
 
   todos: Todo[] = [
-    new Todo('taskone', false)
+    new Todo('taskone', true)
   ]
+
+  getTask(t: Todo) {
+    this.todos.push(t);
+    this.link = 'todo'; // added this link to route back to todo-list.component
+  }
 }

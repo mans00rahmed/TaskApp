@@ -8,5 +8,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Todo';
   foo: string = 'this is temp var';
+  route: string = 'todo';
 
+  navigate(n: string) {
+    this.route = n
+
+  }
 }

@@ -2,17 +2,21 @@
 <div class="row">
     <div class="col-xs-12">
         <div class="todo-list" *ngIf="link === 'todo'">
-            <h6 class="display-6">{{top}}</h6>
-            <ul class="list-group">
-                <li class="list-group-item" *ngFor="let todo of todos">
-                    <span>{{ todo.task }}</span>
-
-                    <!-- attribiute diretive -->
-                </li>
-            </ul>
+            <div class="containier" *ngIf="todos.length>0;else error">
+                <h6 class="display-6">{{link}}</h6>
+                <ul class="list-group" *ngFor="let todo of todos">
+                    <li class="list-group-item" >
+                        <span>{{ todo.task }}</span>
+                        <!-- attribiute diretive -->
+                        <span class="status" [ngClass]="{'done':todo.isDone}">{{todo.isDone?'Done':'Pending..'}}</span>
+                    </li>
+                </ul>
+            </div>
         </div>
+        <!-- add local refernce ie ng-template -->
+
         <div class="todo-edit" *ngIf="link !== 'todo'">
-            <app-todo-edit></app-todo-edit>
+            <app-todo-edit (addTodo)="getTask($event)"></app-todo-edit>
         </div>
     </div>
 </div>

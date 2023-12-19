@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Todo } from '../../model/Todo';
 
 @Component({
@@ -7,7 +7,13 @@ import { Todo } from '../../model/Todo';
   styleUrl: './todo-edit.component.css'
 })
 export class TodoEditComponent {
-  task: string = '';
-  isDone: boolean = false;
+  @Input() task: string = '';
+  @Input() isDone: boolean = false;
+  @Output() addTodo = new EventEmitter<Todo>();
 
+  @Output() deleteTodo = new EventEmitter<void>();
+
+  addTask() {
+    this.addTodo.emit({ task: this.task, isDone: this.isDone })
+  }
 }
