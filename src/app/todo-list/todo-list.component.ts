@@ -1,42 +1,38 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Todo } from '../model/Todo';
+import { TodoService } from '../todo.service';
 
 @Component({
   selector: 'app-todo-list',
   templateUrl: './todo-list.component.html',
   styleUrl: './todo-list.component.css'
 })
-export class TodoListComponent {
-  @Input() link: string = 'todo';
+export class TodoListComponent implements OnInit {
+  ngOnInit(): void {
+    this.todos = this.todoService.getAllTodos();
+    console.log(this.todos);
+  }
+
+  nav: string = 'todo';
+
+
+  constructor(private todoService: TodoService) {
+
+    //this subscribe will get changed value by service.
+    this.todoService.link.subscribe((a) => { this.nav = a })
+
+  }
 
   // declare proerties for delete task and delete isDone
-  deleteTask: string;
-  deleteIsDone: boolean;
+  loadTask: string;
+  loadIsDone: boolean;
 
-  todos: Todo[] = [
-    new Todo('taskone', true),
-    new Todo('tasktwo', false)
-  ]
+  todos: Todo[] = [];
 
-  getTask(t: Todo) {
-    this.todos.push(t);
-    this.link = 'todo'; // added this link to route back to todo-list.component
-  }
-
-  getTodo(td: any) {
-    this.link = 'todo-edit';
-    this.deleteTask = td.task;
-    this.deleteIsDone = td.isDone;
-    console.log(this.deleteTask, this.deleteIsDone)
-  }
-
-  deletedTodo() {
-    if (this.deleteTask) {
-      this.todos = this.todos.filter(i => i.task !== this.deleteTask);
-      this.deleteTask='';
-      this.deleteIsDone=false;
-
-      this.link='todo'
-    }
+  loadTodo(td: any) {
+    //These are used to load data in edit componenet.
+    this.loadTask = td.task;
+    this.loadIsDone = td.isDone;
+    this.todoService.link.next('editTodo')
   }
 }

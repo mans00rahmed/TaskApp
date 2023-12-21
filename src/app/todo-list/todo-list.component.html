@@ -1,11 +1,11 @@
 <!-- todo list component -->
 <div class="row">
     <div class="col-xs-12">
-        <div class="todo-list" *ngIf="link === 'todo'">
+        <div class="todo-list" *ngIf="nav === 'todo'">
             <div class="containier" *ngIf="todos.length>0;else error">
-                <h6 class="display-6">{{link}}</h6>
+                <h6 class="display-6">{{nav}}</h6>
                 <ul class="list-group" *ngFor="let todo of todos">
-                    <li class="list-group-item" (click)="getTodo(todo)">
+                    <li class="list-group-item" (click)="loadTodo(todo)">
                         <span>{{ todo.task }}</span>
                         <!-- attribiute diretive -->
                         <span class="status" [ngClass]="{'done':todo.isDone}">{{todo.isDone?'Done':'Pending..'}}</span>
@@ -17,9 +17,8 @@
         <ng-template #error>
             <p>There are no todos</p>
         </ng-template>
-        <div class="todo-edit" *ngIf="link !== 'todo'">
-            <app-todo-edit (addTodo)="getTask($event)" (deleteTodo)="deletedTodo()" [task]="deleteTask"
-                [isDone]="deleteIsDone"></app-todo-edit>
+        <div class="todo-edit" *ngIf="nav !== 'todo'">
+            <app-todo-edit [task]="loadTask" [isDone]="loadIsDone"></app-todo-edit>
         </div>
     </div>
 </div>

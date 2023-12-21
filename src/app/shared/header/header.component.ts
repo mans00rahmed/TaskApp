@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { TodoService } from '../../todo.service';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +7,11 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-  @Output() nav = new EventEmitter<string>();
+  constructor(private todoService: TodoService) { }
 
 
   navigation(n: string) {
-    this.nav.emit(n);
+    // link next
+    this.todoService.link.next(n);
   }
 }
