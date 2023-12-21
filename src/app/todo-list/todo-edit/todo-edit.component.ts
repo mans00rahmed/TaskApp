@@ -23,6 +23,7 @@ export class TodoEditComponent {
 
   deleteTask() {
     //apply delete functionality here
+    this.todoService.deleteSubject.next(this.task);
     this.todoService.link.next('todo')
   }
 

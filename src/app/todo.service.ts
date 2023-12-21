@@ -13,14 +13,13 @@ export class TodoService {
 
   link: Subject<string> = new Subject<string>();
   addSubject: Subject<Todo> = new Subject<Todo>();
-  deleteSubject: Subject<number> = new Subject<number>();
+  deleteSubject: Subject<string> = new Subject<string>();
 
   constructor() {
-
-    this.deleteSubject.subscribe((id) => {
+    this.deleteSubject.subscribe((task) => {
       let deleteIndex = 0;
       this.todos.forEach((element, index) => {
-        if (element.id === id) {
+        if (element.task === task) {
           deleteIndex = index;
         }
       })
