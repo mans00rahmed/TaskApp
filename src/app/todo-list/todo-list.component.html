@@ -18,7 +18,7 @@
             <p>There are no todos</p>
         </ng-template>
         <div class="todo-edit" *ngIf="nav !== 'todo'">
-            <app-todo-edit [task]="loadTask" [isDone]="loadIsDone"></app-todo-edit>
+            <app-todo-edit [task]="loadTask" [isDone]="loadIsDone" [id]="loadId"></app-todo-edit>
         </div>
     </div>
 </div>

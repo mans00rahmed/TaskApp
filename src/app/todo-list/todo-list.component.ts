@@ -26,13 +26,18 @@ export class TodoListComponent implements OnInit {
   // declare proerties for delete task and delete isDone
   loadTask: string;
   loadIsDone: boolean;
-
+  loadId : number;
   todos: Todo[] = [];
 
   loadTodo(td: any) {
+    console.log(td);
+    
     //These are used to load data in edit componenet.
     this.loadTask = td.task;
     this.loadIsDone = td.isDone;
+    this.loadId = td.id;
+    console.log(this.loadId);
+    
     this.todoService.link.next('editTodo')
   }
 }

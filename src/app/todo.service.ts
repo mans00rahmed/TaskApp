@@ -12,28 +12,26 @@ export class TodoService {
   ]
 
   link: Subject<string> = new Subject<string>();
-  addSubject: Subject<Todo> = new Subject<Todo>();
-  deleteSubject: Subject<number> = new Subject<number>();
 
-  constructor() {
-
-    this.deleteSubject.subscribe((id) => {
-      let deleteIndex = 0;
-      this.todos.forEach((element, index) => {
-        if (element.id === id) {
-          deleteIndex = index;
-        }
-      })
-      this.todos.splice(deleteIndex, 1);
-    })
-  }
+  constructor() { }
 
   getAllTodos() {
     return this.todos;
   }
 
-  addTodos() {
-    this.addSubject.subscribe((todo) => this.todos.push(todo))
+  addTodos(at) {
+    this.todos.push(at)
+  }
+
+  deleteTodo(id) {
+    id = id.id.toString();
+
+    this.todos.forEach((element, index) => {
+      if (element.id == id) {
+        this.todos.splice(index, 1);
+        console.log(this.todos);
+      }
+    })
   }
 
 }
