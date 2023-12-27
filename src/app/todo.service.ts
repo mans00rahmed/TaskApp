@@ -11,7 +11,6 @@ export class TodoService {
     { id: 2, task: 'taskTwo', isDone: false },
   ]
 
-  link: Subject<string> = new Subject<string>();
 
   constructor() { }
 

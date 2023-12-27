@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Todo } from '../model/Todo';
 import { TodoService } from '../todo.service';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-todo-list',
@@ -16,28 +17,30 @@ export class TodoListComponent implements OnInit {
   nav: string = 'todo';
 
 
-  constructor(private todoService: TodoService) {
+  constructor(private todoService: TodoService, private router: Router) {
 
     //this subscribe will get changed value by service.
-    this.todoService.link.subscribe((a) => { this.nav = a })
+    // this.todoService.link.subscribe((a) => { this.nav = a })
 
   }
 
   // declare proerties for delete task and delete isDone
   loadTask: string;
   loadIsDone: boolean;
-  loadId : number;
+  loadId: number;
   todos: Todo[] = [];
 
   loadTodo(td: any) {
     console.log(td);
-    
+    //send data in route
+    this.router.navigate(['/todo/todoEdit',td.id],{queryParams:td})
+
     //These are used to load data in edit componenet.
     this.loadTask = td.task;
     this.loadIsDone = td.isDone;
     this.loadId = td.id;
     console.log(this.loadId);
-    
-    this.todoService.link.next('editTodo')
+
+    //this.todoService.link.next('editTodo')
   }
 }

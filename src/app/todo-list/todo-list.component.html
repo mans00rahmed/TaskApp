@@ -1,7 +1,7 @@
 <!-- todo list component -->
 <div class="row">
     <div class="col-xs-12">
-        <div class="todo-list" *ngIf="nav === 'todo'">
+        <div class="todo-list">
             <div class="containier" *ngIf="todos.length>0;else error">
                 <h6 class="display-6">{{nav}}</h6>
                 <ul class="list-group" *ngFor="let todo of todos">
@@ -17,8 +17,8 @@
         <ng-template #error>
             <p>There are no todos</p>
         </ng-template>
-        <div class="todo-edit" *ngIf="nav !== 'todo'">
-            <app-todo-edit [task]="loadTask" [isDone]="loadIsDone" [id]="loadId"></app-todo-edit>
+        <div class="todo-edit">
+            <router-outlet></router-outlet>
         </div>
     </div>
 </div>

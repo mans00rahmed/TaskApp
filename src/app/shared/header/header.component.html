@@ -8,10 +8,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" (click)="navigation('todo')">Show Todos</a>
+                    <a class="nav-link active" aria-current="page" [routerLink]="'/todo'">Show Todos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" (click)="navigation('editTodo')">Edit Todos</a>
+                    <a class="nav-link" [routerLink]="'/todo/todoEdit'">Edit Todos</a>
                 </li>
             </ul>
         </div>
