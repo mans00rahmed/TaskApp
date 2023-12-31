@@ -10,6 +10,18 @@ import { Route, Router } from '@angular/router';
 })
 export class TodoListComponent implements OnInit {
   ngOnInit(): void {
+    
+    this.todoService.getAllTodos().subscribe(res => {
+
+      this.todos = res.map((e: any) => {
+        const data = e.payload.doc.data();
+        data.id = e.payload.doc.id;
+        return data;
+      })
+
+    }, err => {
+      alert('Error while fetching student data');
+    })
     this.todos = this.todoService.getAllTodos();
     console.log(this.todos);
   }
@@ -28,12 +40,13 @@ export class TodoListComponent implements OnInit {
   loadTask: string;
   loadIsDone: boolean;
   loadId: number;
-  todos: Todo[] = [];
+  todos: any = [];
 
+  
   loadTodo(td: any) {
     console.log(td);
     //send data in route
-    this.router.navigate(['/todo/todoEdit',td.id],{queryParams:td})
+    this.router.navigate(['/todo/todoEdit', td.id], { queryParams: td })
 
     //These are used to load data in edit componenet.
     this.loadTask = td.task;

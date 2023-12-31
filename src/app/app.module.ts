@@ -7,7 +7,10 @@ import { HeaderComponent } from './shared/header/header.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoEditComponent } from './todo-list/todo-edit/todo-edit.component';
 import { FormsModule } from '@angular/forms';
-
+import { environment } from '../../environments/environment';
+import { AngularFireModule } from '@angular/fire/compat';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -15,12 +18,15 @@ import { FormsModule } from '@angular/forms';
     HeaderComponent,
     TodoListComponent,
     TodoEditComponent,
+    LoginComponent,
+    RegisterComponent,
 
   ],
-  imports: [
+  imports: [  
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "todo-b-end": {
+      "hosting": {
+        "todo": [
+          "todo-b-end"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "todo-b-end"
+  }
+}

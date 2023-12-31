@@ -31,8 +31,13 @@ export class TodoEditComponent implements OnInit {
   }
 
   deleteTask() {
+
+    if (window.confirm('Are you sure you want to delete ')) {
+      this.todoService.deleteTodo({ id: this.id, task: this.task, isDone: this.isDone });
+    }
+
     //apply delete functionality here
-    this.todoService.deleteTodo({ id: this.id });
+    //this.todoService.deleteTodo({ id: this.id });
     //navigate to todo bt route
     this.router.navigate(['/todo']);
 
