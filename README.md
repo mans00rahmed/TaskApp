@@ -1,5 +1,7 @@
 # Todo
 
+<a href ="https://www.notion.so/f9ca7f6445ea4a518eb6bd17fc149183?v=d66ee649a7764d50a5026ebdfba10067" > Notes to the project</a>
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.6.
 
 ## Development server
